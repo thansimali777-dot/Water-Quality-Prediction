@@ -1,0 +1,844 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#<h1>Login Page</h1>#}
+{#<form action="/myapp/logins_post/" method="post">#}
+{#    <label>UserName</label><br>#}
+{#    <input type="text" name="uname"><br>#}
+{#    <label>Password</label><br>#}
+{#    <input type="password" name="pwrd"><br>#}
+{#    <button type="submit">Login</button>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Login Page</title>#}
+{##}
+{#    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">#}
+{##}
+{#    <style>#}
+{#        * {#}
+{#            margin: 0;#}
+{#            padding: 0;#}
+{#            box-sizing: border-box;#}
+{#        }#}
+{##}
+{#        body {#}
+{#            font-family: 'Inter', sans-serif;#}
+{#            min-height: 100vh;#}
+{#            background: #f5f7fb;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            padding: 24px;#}
+{#            color: #1e293b;#}
+{#        }#}
+{##}
+{##}
+{##}
+{#        .register-btn {#}
+{#            width: 100%;#}
+{#            height: 49px;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            margin-top: 12px;#}
+{#            border: 1px solid #dbe2ed;#}
+{#            border-radius: 10px;#}
+{#            background: #ffffff;#}
+{#            color: #4f46e5;#}
+{#            font-family: inherit;#}
+{#            font-size: 14px;#}
+{#            font-weight: 700;#}
+{#            text-decoration: none;#}
+{#            transition: 0.25s;#}
+{#}#}
+{##}
+{#        .register-btn:hover {#}
+{#            background: #eef2ff;#}
+{#            border-color: #a5b4fc;#}
+{#            }#}
+{##}
+{#        .container {#}
+{#            width: 100%;#}
+{#            max-width: 950px;#}
+{#            min-height: 560px;#}
+{#            display: grid;#}
+{#            grid-template-columns: 1fr 1fr;#}
+{#            background: #ffffff;#}
+{#            border-radius: 24px;#}
+{#            overflow: hidden;#}
+{#            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);#}
+{#        }#}
+{##}
+{#        .hero {#}
+{#            background: linear-gradient(145deg, #312e81, #4f46e5, #7c3aed);#}
+{#            color: white;#}
+{#            padding: 50px 42px;#}
+{#            display: flex;#}
+{#            flex-direction: column;#}
+{#            justify-content: center;#}
+{#            position: relative;#}
+{#            overflow: hidden;#}
+{#        }#}
+{##}
+{#        .hero::before,#}
+{#        .hero::after {#}
+{#            content: "";#}
+{#            position: absolute;#}
+{#            border: 1px solid rgba(255, 255, 255, 0.13);#}
+{#            border-radius: 50%;#}
+{#        }#}
+{##}
+{#        .hero::before {#}
+{#            width: 300px;#}
+{#            height: 300px;#}
+{#            top: -120px;#}
+{#            right: -130px;#}
+{#        }#}
+{##}
+{#        .hero::after {#}
+{#            width: 230px;#}
+{#            height: 230px;#}
+{#            bottom: -110px;#}
+{#            left: -90px;#}
+{#        }#}
+{##}
+{#        .brand {#}
+{#            position: absolute;#}
+{#            top: 28px;#}
+{#            left: 30px;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 11px;#}
+{#            font-size: 16px;#}
+{#            font-weight: 700;#}
+{#        }#}
+{##}
+{#        .brand-icon {#}
+{#            width: 38px;#}
+{#            height: 38px;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            background: rgba(255, 255, 255, 0.17);#}
+{#            border-radius: 11px;#}
+{#            font-size: 21px;#}
+{#        }#}
+{##}
+{#        .hero-content {#}
+{#            position: relative;#}
+{#            z-index: 1;#}
+{#            margin-top: 30px;#}
+{#        }#}
+{##}
+{#        .tag {#}
+{#            display: inline-block;#}
+{#            background: rgba(255, 255, 255, 0.14);#}
+{#            padding: 9px 13px;#}
+{#            border-radius: 30px;#}
+{#            font-size: 10px;#}
+{#            font-weight: 600;#}
+{#            letter-spacing: 1px;#}
+{#            margin-bottom: 24px;#}
+{#        }#}
+{##}
+{#        .hero h1 {#}
+{#            font-size: 36px;#}
+{#            line-height: 1.3;#}
+{#            font-weight: 800;#}
+{#            letter-spacing: -1px;#}
+{#            margin-bottom: 18px;#}
+{#        }#}
+{##}
+{#        .hero p {#}
+{#            font-size: 13px;#}
+{#            line-height: 1.9;#}
+{#            color: #e0e7ff;#}
+{#            max-width: 330px;#}
+{#        }#}
+{##}
+{#        .login-panel {#}
+{#            padding: 45px 42px;#}
+{#            display: flex;#}
+{#            flex-direction: column;#}
+{#            justify-content: center;#}
+{#        }#}
+{##}
+{#        .login-icon {#}
+{#            width: 62px;#}
+{#            height: 62px;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            border-radius: 18px;#}
+{#            background: #eef2ff;#}
+{#            color: #4f46e5;#}
+{#            font-size: 30px;#}
+{#            margin-bottom: 24px;#}
+{#        }#}
+{##}
+{#        .login-panel h2 {#}
+{#            font-size: 27px;#}
+{#            font-weight: 800;#}
+{#            letter-spacing: -0.7px;#}
+{#            margin-bottom: 9px;#}
+{#        }#}
+{##}
+{#        .subtitle {#}
+{#            font-size: 13px;#}
+{#            color: #64748b;#}
+{#            line-height: 1.7;#}
+{#            margin-bottom: 30px;#}
+{#        }#}
+{##}
+{#        .form-group {#}
+{#            margin-bottom: 22px;#}
+{#        }#}
+{##}
+{#        label {#}
+{#            display: block;#}
+{#            font-size: 12px;#}
+{#            font-weight: 700;#}
+{#            color: #334155;#}
+{#            margin-bottom: 10px;#}
+{#        }#}
+{##}
+{#        .input-wrapper {#}
+{#            position: relative;#}
+{#        }#}
+{##}
+{#        .input-icon {#}
+{#            position: absolute;#}
+{#            left: 15px;#}
+{#            top: 50%;#}
+{#            transform: translateY(-50%);#}
+{#            font-size: 17px;#}
+{#            color: #94a3b8;#}
+{#            pointer-events: none;#}
+{#        }#}
+{##}
+{#        input {#}
+{#            width: 100%;#}
+{#            height: 49px;#}
+{#            padding: 0 15px 0 43px;#}
+{#            border: 1px solid #dbe2ed;#}
+{#            border-radius: 10px;#}
+{#            background: #fbfcfe;#}
+{#            color: #334155;#}
+{#            font-family: inherit;#}
+{#            font-size: 13px;#}
+{#            outline: none;#}
+{#            transition: 0.2s;#}
+{#        }#}
+{##}
+{#        input:focus {#}
+{#            border-color: #6366f1;#}
+{#            background: #ffffff;#}
+{#            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);#}
+{#        }#}
+{##}
+{#        input::placeholder {#}
+{#            color: #a0aabc;#}
+{#        }#}
+{##}
+{#        .login-btn {#}
+{#            width: 100%;#}
+{#            height: 49px;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            gap: 10px;#}
+{#            margin-top: 5px;#}
+{#            border: none;#}
+{#            border-radius: 10px;#}
+{#            background: #4f46e5;#}
+{#            color: white;#}
+{#            font-family: inherit;#}
+{#            font-size: 14px;#}
+{#            font-weight: 700;#}
+{#            cursor: pointer;#}
+{#            transition: 0.25s;#}
+{#        }#}
+{##}
+{#        .login-btn:hover {#}
+{#            background: #4338ca;#}
+{#            transform: translateY(-1px);#}
+{#            box-shadow: 0 7px 18px rgba(79, 70, 229, 0.22);#}
+{#        }#}
+{##}
+{#        .login-btn span {#}
+{#            font-size: 18px;#}
+{#            transition: transform 0.2s;#}
+{#        }#}
+{##}
+{#        .login-btn:hover span {#}
+{#            transform: translateX(4px);#}
+{#        }#}
+{##}
+{#        .secure-note {#}
+{#            display: flex;#}
+{#            justify-content: center;#}
+{#            align-items: center;#}
+{#            gap: 7px;#}
+{#            color: #94a3b8;#}
+{#            font-size: 11px;#}
+{#            margin-top: 23px;#}
+{#        }#}
+{##}
+{#        @media (max-width: 700px) {#}
+{#            body {#}
+{#                padding: 16px;#}
+{#            }#}
+{##}
+{#            .container {#}
+{#                max-width: 430px;#}
+{#                grid-template-columns: 1fr;#}
+{#            }#}
+{##}
+{#            .hero {#}
+{#                min-height: 250px;#}
+{#                padding: 75px 28px 30px;#}
+{#            }#}
+{##}
+{#            .brand {#}
+{#                top: 20px;#}
+{#                left: 25px;#}
+{#            }#}
+{##}
+{#            .hero-content {#}
+{#                margin-top: 8px;#}
+{#            }#}
+{##}
+{#            .hero h1 {#}
+{#                font-size: 28px;#}
+{#            }#}
+{##}
+{#            .hero p {#}
+{#                font-size: 12px;#}
+{#            }#}
+{##}
+{#            .tag {#}
+{#                margin-bottom: 15px;#}
+{#            }#}
+{##}
+{#            .login-panel {#}
+{#                padding: 30px 25px;#}
+{#            }#}
+{##}
+{#            .login-panel h2 {#}
+{#                font-size: 24px;#}
+{#            }#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{##}
+{#<body>#}
+{##}
+{#<div class="container">#}
+{##}
+{#    <section class="hero">#}
+{#        <div class="brand">#}
+{#            <div class="brand-icon">✦</div>#}
+{#            <span>Welcome Portal</span>#}
+{#        </div>#}
+{##}
+{#        <div class="hero-content">#}
+{#            <span class="tag">YOUR DIGITAL WORKSPACE</span>#}
+{#            <h1>Good to see you again.</h1>#}
+{#            <p>#}
+{#                Sign in to access your account, manage your activities,#}
+{#                and continue where you left off.#}
+{#            </p>#}
+{#        </div>#}
+{#    </section>#}
+{##}
+{#    <section class="login-panel">#}
+{##}
+{#        <div class="login-icon">⇥</div>#}
+{##}
+{#        <h2>Login</h2>#}
+{#        <p class="subtitle">Enter your credentials to access your account.</p>#}
+{##}
+{#        <form action="/myapp/logins_post/" method="post">#}
+{#            {% csrf_token %}#}
+{##}
+{#            <div class="form-group">#}
+{#                <label for="uname">Username</label>#}
+{#                <div class="input-wrapper">#}
+{#                    <span class="input-icon">♙</span>#}
+{#                    <input#}
+{#                        type="text"#}
+{#                        id="uname"#}
+{#                        name="uname"#}
+{#                        placeholder="Enter your username"#}
+{#                        autocomplete="username"#}
+{#                        required>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <div class="form-group">#}
+{#                <label for="pwrd">Password</label>#}
+{#                <div class="input-wrapper">#}
+{#                    <span class="input-icon">♙</span>#}
+{#                    <input#}
+{#                        type="password"#}
+{#                        id="pwrd"#}
+{#                        name="pwrd"#}
+{#                        placeholder="Enter your password"#}
+{#                        autocomplete="current-password"#}
+{#                        required>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <button type="submit" class="login-btn">#}
+{#                Login to Continue <span>→</span>#}
+{#            </button>#}
+{#            <a href="/myapp/user_register_get/" class="register-btn">#}
+{#             Create a New Account →#}
+{#          </a>#}
+{#        </form>#}
+{##}
+{#        <div class="secure-note">#}
+{#            <span>♢</span> Secure access to your account#}
+{#        </div>#}
+{##}
+{#    </section>#}
+{##}
+{#</div>#}
+{##}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: #f5f7fb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            color: #1e293b;
+        }
+
+        .register-btn {
+            width: 100%;
+            height: 49px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 12px;
+            border: 1px solid #dbe2ed;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #4f46e5;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.25s;
+        }
+
+        .register-btn:hover {
+            background: #eef2ff;
+            border-color: #a5b4fc;
+        }
+
+        /* Login error message */
+        .login-message {
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #fecaca;
+            border-radius: 10px;
+            background: #fef2f2;
+            color: #b91c1c;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            min-height: 560px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #312e81, #4f46e5, #7c3aed);
+            color: white;
+            padding: 50px 42px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 50%;
+        }
+
+        .hero::before {
+            width: 300px;
+            height: 300px;
+            top: -120px;
+            right: -130px;
+        }
+
+        .hero::after {
+            width: 230px;
+            height: 230px;
+            bottom: -110px;
+            left: -90px;
+        }
+
+        .brand {
+            position: absolute;
+            top: 28px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.17);
+            border-radius: 11px;
+            font-size: 21px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.14);
+            padding: 9px 13px;
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            line-height: 1.3;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 13px;
+            line-height: 1.9;
+            color: #e0e7ff;
+            max-width: 330px;
+        }
+
+        .login-panel {
+            padding: 45px 42px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-icon {
+            width: 62px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-size: 30px;
+            margin-bottom: 24px;
+        }
+
+        .login-panel h2 {
+            font-size: 27px;
+            font-weight: 800;
+            letter-spacing: -0.7px;
+            margin-bottom: 9px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 17px;
+            color: #94a3b8;
+            pointer-events: none;
+        }
+
+        input {
+            width: 100%;
+            height: 49px;
+            padding: 0 15px 0 43px;
+            border: 1px solid #dbe2ed;
+            border-radius: 10px;
+            background: #fbfcfe;
+            color: #334155;
+            font-family: inherit;
+            font-size: 13px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #6366f1;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        input::placeholder {
+            color: #a0aabc;
+        }
+
+        .login-btn {
+            width: 100%;
+            height: 49px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .login-btn:hover {
+            background: #4338ca;
+            transform: translateY(-1px);
+            box-shadow: 0 7px 18px rgba(79, 70, 229, 0.22);
+        }
+
+        .login-btn span {
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+
+        .login-btn:hover span {
+            transform: translateX(4px);
+        }
+
+        .secure-note {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+            color: #94a3b8;
+            font-size: 11px;
+            margin-top: 23px;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                max-width: 430px;
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 250px;
+                padding: 75px 28px 30px;
+            }
+
+            .brand {
+                top: 20px;
+                left: 25px;
+            }
+
+            .hero-content {
+                margin-top: 8px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 12px;
+            }
+
+            .tag {
+                margin-bottom: 15px;
+            }
+
+            .login-panel {
+                padding: 30px 25px;
+            }
+
+            .login-panel h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <section class="hero">
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+            <span>Welcome Portal</span>
+        </div>
+
+        <div class="hero-content">
+            <span class="tag">YOUR DIGITAL WORKSPACE</span>
+            <h1>Good to see you again.</h1>
+            <p>
+                Sign in to access your account, manage your activities,
+                and continue where you left off.
+            </p>
+        </div>
+    </section>
+
+    <section class="login-panel">
+
+        <div class="login-icon">⇥</div>
+
+        <h2>Login</h2>
+        <p class="subtitle">Enter your credentials to access your account.</p>
+
+        <!-- Display login error messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="login-message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <form action="/myapp/logins_post/" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="uname">Username</label>
+                <div class="input-wrapper">
+                    <span class="input-icon">♙</span>
+                    <input
+                        type="text"
+                        id="uname"
+                        name="uname"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pwrd">Password</label>
+                <div class="input-wrapper">
+                    <span class="input-icon">♙</span>
+                    <input
+                        type="password"
+                        id="pwrd"
+                        name="pwrd"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required>
+                </div>
+            </div>
+
+            <button type="submit" class="login-btn">
+                Login to Continue <span>→</span>
+            </button>
+        </form>
+
+        <a href="/myapp/user_register_get/" class="register-btn">
+            Create a New Account →
+        </a>
+
+        <div class="secure-note">
+            <span>♢</span> Secure access to your account
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>
+

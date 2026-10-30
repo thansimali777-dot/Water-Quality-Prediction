@@ -1,0 +1,286 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#<h1>User Home</h1>#}
+{#<a href="/myapp/viewresult/">View Result</a>#}
+{#<a href="/myapp/user_register_get/">Create a new account</a>#}
+{#<a href="/myapp/view_user_register/">Manage Profile</a>#}
+{#<a href="/myapp/feedback/">Send feedback</a>#}
+{#<a href="/myapp/viewfeedback/">Manage feedback</a>#}
+{#<a href="/myapp/sendcomplaint/">Send Complaint</a>#}
+{#<a href="/myapp/viewcomplaint/">View Complaint</a>#}
+{#</body>#}
+{#</html>#}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f6fb;
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: #ffffff;
+            padding: 20px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e8edf5;
+        }
+
+        .brand {
+            font-size: 21px;
+            font-weight: 800;
+            color: #6d28d9;
+        }
+
+        .brand span {
+            color: #172554;
+        }
+
+        .profile-label {
+            background: #ede9fe;
+            color: #6d28d9;
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 50px 24px;
+        }
+
+        .welcome-section {
+            margin-bottom: 35px;
+        }
+
+        .welcome-section .eyebrow {
+            color: #7c3aed;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .welcome-section h1 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #172554;
+            margin-bottom: 12px;
+        }
+
+        .welcome-section p {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .dashboard-card {
+            background: #ffffff;
+            border: 1px solid #e8edf5;
+            border-radius: 16px;
+            padding: 25px;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.03);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+            border-color: #c4b5fd;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: #ede9fe;
+            color: #6d28d9;
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 9px;
+        }
+
+        .dashboard-card p {
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.7;
+            min-height: 44px;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 18px;
+            color: #6d28d9;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .container {
+                padding-top: 35px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .navbar {
+                padding: 17px 20px;
+            }
+
+            .brand {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 35px 16px;
+            }
+
+            .welcome-section h1 {
+                font-size: 28px;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .dashboard-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="brand">Water<span>Care</span></div>
+        <div class="profile-label">USER DASHBOARD</div>
+    </nav>
+
+    <main class="container">
+
+        <section class="welcome-section">
+            <div class="eyebrow">Your Dashboard</div>
+            <h1>Welcome Back!</h1>
+            <p>Access your water quality results, manage your profile, and share your feedback or complaints from one place.</p>
+        </section>
+
+        <h2 class="section-title">Quick Access</h2>
+
+        <div class="dashboard-grid">
+
+            <a href="/myapp/viewresult/" class="dashboard-card">
+                <div class="card-icon">◉</div>
+                <h3>View Result</h3>
+                <p>Check your water quality prediction results and analysis.</p>
+                <span class="card-link">View results →</span>
+            </a>
+
+            <a href="/myapp/view_user_register/" class="dashboard-card">
+                <div class="card-icon">♙</div>
+                <h3>Manage Profile</h3>
+                <p>View and manage your registered profile details.</p>
+                <span class="card-link">Manage profile →</span>
+            </a>
+
+            <a href="/myapp/feedback/" class="dashboard-card">
+                <div class="card-icon">✎</div>
+                <h3>Send Feedback</h3>
+                <p>Share your suggestions and help improve the service.</p>
+                <span class="card-link">Send feedback →</span>
+            </a>
+
+            <a href="/myapp/viewfeedback/" class="dashboard-card">
+                <div class="card-icon">☷</div>
+                <h3>Manage Feedback</h3>
+                <p>Review your feedback and any available replies.</p>
+                <span class="card-link">View feedback →</span>
+            </a>
+
+            <a href="/myapp/sendcomplaint/" class="dashboard-card">
+                <div class="card-icon">✉</div>
+                <h3>Send Complaint</h3>
+                <p>Submit a complaint if you experience a problem.</p>
+                <span class="card-link">Submit complaint →</span>
+            </a>
+
+            <a href="/myapp/viewcomplaint/" class="dashboard-card">
+                <div class="card-icon">▤</div>
+                <h3>View Complaint</h3>
+                <p>Check the complaints you have submitted.</p>
+                <span class="card-link">View complaints →</span>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        WaterCare · Water Quality Monitoring System
+    </footer>
+
+</body>
+</html>

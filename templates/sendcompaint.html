@@ -1,0 +1,194 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#<h1>Complaint</h1>#}
+{#<form action="/myapp/complaintpost/" method="post">#}
+{#    <label>Complaint</label><br>#}
+{#    <textarea rows="10" cols="50" name="complaint">#}
+{#    </textarea><br>#}
+{#    <button type="submit">Submit</button>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Complaint</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f6fb;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .complaint-container {
+            width: 100%;
+            max-width: 560px;
+        }
+
+        .page-heading {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: #ede9fe;
+            color: #6d28d9;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 18px;
+        }
+
+        .page-heading h1 {
+            font-size: 30px;
+            font-weight: 800;
+            color: #172554;
+            margin-bottom: 10px;
+        }
+
+        .page-heading p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .complaint-card {
+            background: #ffffff;
+            border: 1px solid #e8edf5;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 12px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 190px;
+            padding: 16px;
+            border: 1px solid #dbe2ee;
+            border-radius: 12px;
+            background: #f8fafc;
+            color: #1e293b;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.7;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        textarea:focus {
+            border-color: #7c3aed;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 22px;
+            padding: 15px;
+            border: none;
+            border-radius: 11px;
+            background: #6d28d9;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #5b21b6;
+            transform: translateY(-1px);
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 480px) {
+            .page-heading h1 {
+                font-size: 26px;
+            }
+
+            .complaint-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="complaint-container">
+
+        <div class="page-heading">
+            <div class="icon-box">✉</div>
+            <h1>Submit a Complaint</h1>
+            <p>Share your concerns with us. Please describe your complaint clearly so it can be reviewed.</p>
+        </div>
+
+        <div class="complaint-card">
+            <form action="/myapp/complaintpost/" method="post">
+                {% csrf_token %}
+
+                <label for="complaint">Your Complaint</label>
+
+                <textarea
+                    id="complaint"
+                    name="complaint"
+                    placeholder="Describe your complaint here..."
+                    required
+                ></textarea>
+
+                <button type="submit" class="submit-btn">Submit Complaint →</button>
+            </form>
+        </div>
+
+        <p class="footer-note">Your feedback helps us improve our service.</p>
+
+    </div>
+</body>
+</html>
